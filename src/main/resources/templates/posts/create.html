@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Post</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector("form");
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+
+                        const latitudeInput = document.createElement("input");
+                        latitudeInput.type = "hidden";
+                        latitudeInput.name = "latitude";
+                        latitudeInput.value = latitude;
+
+                        const longitudeInput = document.createElement("input");
+                        longitudeInput.type = "hidden";
+                        longitudeInput.name = "longitude";
+                        longitudeInput.value = longitude;
+
+                        form.appendChild(latitudeInput);
+                        form.appendChild(longitudeInput);
+
+                        form.submit();
+                    }, function(error) {
+                        console.error("Error getting location: ", error);
+                        alert("Could not get your location. Please try again.");
+                    });
+                } else {
+                    alert("Geolocation is not supported by this browser.");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Create New Post</h1>
+    <form th:action="@{/posts/create}" th:object="${post}" method="post">
+        <label for="title">タイトル:</label>
+        <input type="text" id="title" th:field="*{title}"/>
+        <br/>
+        <label for="description">説明:</label>
+        <textarea id="description" th:field="*{description}"></textarea>
+        <br/>
+        <label for="location">場所の説明:</label>
+        <input type="text" id="location" th:field="*{location}"/>
+        <br/>
+        <button type="submit">投稿</button>
+    </form>
+    <a href="/posts">Back to Posts List</a>
+</body>
+</html>
