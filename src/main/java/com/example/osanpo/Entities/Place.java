@@ -2,42 +2,52 @@ package com.example.osanpo.Entities;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
-// @Entity
-// @Table(name = "Posts")
-public class Post {
+
+@Entity
+@Table(name = "place")
+public class Place {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id", nullable = false)
-    private Long userId = 0L; // user_idを0で初期化(userを実装し終えるまで)
+    // @ManyToOne
+    // @JoinColumn(name = "user_id", nullable = false)
+    // private User user;
 
-    @Column(name = "title", nullable = false)
-    private String title;
+    @Column(name = "image_url", nullable = false)
+    private String imageUrl;
 
     @Column(name = "description")
     private String description;
 
-    @Column(name = "location")
-    private String location;
+    @Column(name = "taken_at")
+    private LocalDateTime takenAt;
 
-    @Column(name = "latitude")
+    @Column(name = "latitude", nullable = false)
     private Double latitude;
 
-    @Column(name = "longitude")
+    @Column(name = "longitude", nullable = false)
     private Double longitude;
+
+    @Column(name = "prefecture")
+    private String prefecture;
+
+    @Column(name = "city")
+    private String city;
+
+    @Column(name = "ward")
+    private String ward;
+
+    @Column(name = "nearest_station")
+    private String nearestStation;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
-
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Image> images;
 
     @PrePersist
     protected void onCreate() {
@@ -50,6 +60,7 @@ public class Post {
         updatedAt = LocalDateTime.now();
     }
 
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -58,20 +69,20 @@ public class Post {
         this.id = id;
     }
 
-    public Long getUserId() {
-        return userId;
+    // public User getUser() {
+    //     return user;
+    // }
+
+    // public void setUser(User user) {
+    //     this.user = user;
+    // }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getDescription() {
@@ -82,12 +93,12 @@ public class Post {
         this.description = description;
     }
 
-    public String getLocation() {
-        return location;
+    public LocalDateTime getTakenAt() {
+        return takenAt;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setTakenAt(LocalDateTime takenAt) {
+        this.takenAt = takenAt;
     }
 
     public Double getLatitude() {
@@ -106,6 +117,38 @@ public class Post {
         this.longitude = longitude;
     }
 
+    public String getPrefecture() {
+        return prefecture;
+    }
+
+    public void setPrefecture(String prefecture) {
+        this.prefecture = prefecture;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getWard() {
+        return ward;
+    }
+
+    public void setWard(String ward) {
+        this.ward = ward;
+    }
+
+    public String getNearestStation() {
+        return nearestStation;
+    }
+
+    public void setNearestStation(String nearestStation) {
+        this.nearestStation = nearestStation;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -121,14 +164,4 @@ public class Post {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
-
-    public List<Image> getImages() {
-        return images;
-    }
-
-    public void setImages(List<Image> images) {
-        this.images = images;
-    }
-
-
 }

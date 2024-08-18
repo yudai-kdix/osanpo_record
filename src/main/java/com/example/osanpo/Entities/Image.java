@@ -3,8 +3,8 @@ package com.example.osanpo.Entities;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "Images")
+// @Entity
+// @Table(name = "Images")
 public class Image {
 
     @Id

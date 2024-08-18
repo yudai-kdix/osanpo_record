@@ -1,4 +1,4 @@
-もちろんです。以下に各テーブルのカラムをマークダウン形式でまとめます。
+ChatGPT作なのでちゃんと確認する
 
 ## Users テーブル
 
@@ -46,5 +46,3 @@ user_idに関してはuserが実装し終えるまでuser_id=0で対応
 | content       | TEXT           | NOT NULL                                    | コメント内容     |
 | created_at    | TIMESTAMP      | DEFAULT CURRENT_TIMESTAMP                   | 作成日時         |
 | updated_at    | TIMESTAMP      | DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP | 更新日時         |
-
-これで、各テーブルのカラムについての概要がまとまりました。次に、Spring Bootのエンティティクラスを作成し、リポジトリ、サービス、コントローラを実装していきましょうか。
