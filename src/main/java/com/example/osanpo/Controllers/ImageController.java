@@ -2,7 +2,7 @@ package com.example.osanpo.Controllers;
 
 import com.example.osanpo.Entities.Image;
 import com.example.osanpo.Services.ImageService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +14,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/images")
 public class ImageController {
-    @Autowired
+    
     private final ImageService imageService;
+
 
     public ImageController(ImageService imageService) {
         this.imageService = imageService;

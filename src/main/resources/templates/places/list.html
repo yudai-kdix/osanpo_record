@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>場所一覧</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">場所一覧</h1>
+        <div class="columns is-multiline">
+          <div class="columns is-multiline">
+            <!-- サーバーサイドでデータをループしてカードを生成 -->
+            <div th:each="place : ${places}" class="column is-one-quarter">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img th:src="${place.imageUrl}" alt="Place image" />
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-4" th:text="${place.description}">
+                        説明文がここに入ります
+                      </p>
+                      <p
+                        class="subtitle is-6"
+                        th:text="${place.city + ', ' + place.ward}"
+                      >
+                        東京都新宿区
+                      </p>
+                    </div>
+                  </div>
+                  <div class="content">
+                    最寄り駅:
+                    <span th:text="${place.nearestStation}">新宿駅</span><br />
+                    撮影日時:
+                    <span th:text="${place.takenAt}">2023-08-08 10:00</span
+                    ><br />
+                    <a th:href="${place.googleMapLink}">Googleマップで見る</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 以下、他の投稿も同様の構造でカードを追加 -->
+          <!-- サーバーサイドのテンプレートエンジンで動的にカードを生成する想定 -->
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -22,5 +22,4 @@ public class PlaceController {
     public String createPlace() {
         return "redirect:/places";
     }
-
 }

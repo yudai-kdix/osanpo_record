@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-// @Entity
-// @Table(name = "Posts")
+@Entity
+@Table(name = "Posts")
 public class Post {
 
     @Id

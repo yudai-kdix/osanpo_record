@@ -1,6 +1,6 @@
 package com.example.osanpo.Services;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import com.example.osanpo.Entities.Place;
@@ -14,7 +14,7 @@ import java.util.Optional;
 @Service
 public class PlaceService {
 
-    @Autowired
+
     private final PlaceRepository placeRepository;
 
     public PlaceService(PlaceRepository placeRepository) {

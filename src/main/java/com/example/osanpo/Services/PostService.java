@@ -3,15 +3,14 @@ package com.example.osanpo.Services;
 
 import com.example.osanpo.Entities.Post;
 import com.example.osanpo.Repositories.PostRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-// @Service
+@Service
 public class PostService {
-    @Autowired
+
     private final PostRepository postRepository;
 
     public PostService(PostRepository postRepository) {
