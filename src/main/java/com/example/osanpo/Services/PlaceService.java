@@ -29,14 +29,14 @@ public class PlaceService {
         return placeRepository.findById(id);
     }
 
-    public Place createPlace(Place place) {
+    public Place savePlace(Place place) {
         return placeRepository.save(place);
     }
 
     public Place updatePlace(Long id, Place placeDetails) {
         return placeRepository.findById(id)
                 .map(place -> {
-                    place.setImageUrl(placeDetails.getImageUrl());
+                    place.setImage(placeDetails.getImageUrl());
                     place.setDescription(placeDetails.getDescription());
                     place.setTakenAt(placeDetails.getTakenAt());
                     place.setLatitude(placeDetails.getLatitude());

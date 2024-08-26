@@ -81,7 +81,7 @@ public class Place {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+    public void setImage(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 
