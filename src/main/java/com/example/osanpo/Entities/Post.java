@@ -36,8 +36,8 @@ public class Post {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Image> images;
+    // @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    // private List<Image> images;
 
     @PrePersist
     protected void onCreate() {
@@ -122,13 +122,13 @@ public class Post {
         this.updatedAt = updatedAt;
     }
 
-    public List<Image> getImages() {
-        return images;
-    }
+    // public List<Image> getImages() {
+    //     return images;
+    // }
 
-    public void setImages(List<Image> images) {
-        this.images = images;
-    }
+    // public void setImages(List<Image> images) {
+    //     this.images = images;
+    // }
 
 
 }

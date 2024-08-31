@@ -2,7 +2,9 @@ package com.example.osanpo.Controllers;
 
 import java.nio.file.Path;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,15 +19,19 @@ import com.example.osanpo.Services.PlaceService;
 @RequestMapping("/places")
 public class PlaceController {
 
+    @Autowired
     ImageService imageService;
+    @Autowired
     PlaceService placeService;
     
-    @GetMapping("/places")
-    public String getAllPlaces() {
+    @GetMapping
+    public String getAllPlaces(Model model) {
+        model.addAttribute("places", placeService.getAllPlaces());
         return "places/list";
     }
     @GetMapping("/create")
-    public String showCreateForm() {
+    public String showCreateForm(Model model) {
+        model.addAttribute("place", new Place());
         return "places/create";
     }
 
