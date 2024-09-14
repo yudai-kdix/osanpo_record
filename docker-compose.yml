@@ -1,26 +1,7 @@
-version: '3.8'
 
-services:
-  db:
-    image: postgres:13
-    container_name: osanpo-db
-    environment:
-      POSTGRES_DB: osanpo
-      POSTGRES_USER: osanpo
-      POSTGRES_PASSWORD: osanpopass
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+# docker-composeを使ってPostgreSQLの環境構築とを行うようにしたい
+# https://qiita.com/ke_suke0215/items/90deba2bf484293000fc
 
-  flyway:
-    image: flyway/flyway:8.5.13
-    container_name: flyway-migration
-    depends_on:
-      - db
-    command: -url=jdbc:postgresql://db:5432/osanpo -user=osanpo -password=osanpopass -locations=filesystem:/flyway/sql migrate
-    volumes:
-      - ./src/main/resources/db/migration:/flyway/sql
-
-volumes:
-  postgres_data:
+# flywayでDBマイグレーションを行うようにしたい
+# https://github.com/flyway/flyway-docker
+# https://qiita.com/ponkotuy/items/58177b50490687170439
