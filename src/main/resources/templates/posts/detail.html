@@ -9,7 +9,8 @@
     <p th:text="${post.location}">Location</p>
     <p th:text="${post.latitude}">Latitude</p>
     <p th:text="${post.longitude}">Longitude</p>
-    <a th:href="@{/posts/edit/{id}(id=${post.id})}">Edit Post</a>
+    <a th:href="@{/posts/edit/{id}(id=${post.id})}">Edit Post</a> 
+    <!-- コントローラーで設定したエラーメッセージ表示できるようになるといい -->
     <a th:href="@{/posts/delete/{id}(id=${post.id})}">Delete Post</a>
     <a href="/posts">Back to Posts List</a>
 </body>

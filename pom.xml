@@ -58,6 +58,8 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- https://github.com/google/google-java-format?tab=readme-ov-file#third-party-integrations -->
+		<!--flywayの設定 https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
 	</dependencies>
 
 	<build>

@@ -6,6 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Posts")
+//lombok使うと便利(@Dataとか) https://sight-r.sts-inc.co.jp/tech/java-lombok/
 public class Post {
 
     @Id

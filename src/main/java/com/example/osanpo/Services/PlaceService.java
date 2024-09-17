@@ -48,6 +48,7 @@ public class PlaceService {
                     return placeRepository.save(place);
                 })
                 .orElseThrow(() -> new ResourceNotFoundException("Place not found with id " + id));
+                // 例外は"例外的な状態にだけ例外を使用する"。リソースが見つからないのは通常の運用であり得ること。
     }
 
     public void deletePlace(Long id) {

@@ -21,6 +21,9 @@ public class ImageService {
 
         if (file != null && !file.isEmpty()) {
             try {
+                // ファイルとして、サーバーのローカルに保存するのはお手軽ではあるがスケールアウトとかに課題がある。
+                // 今っぽい解決方法の一つはS3など外部のオブジェクトストレージなどにファイルを保存すること。
+                // 参考：https://qiita.com/be834194/items/4a08dc7a86198a042ed1
                 // アップロードディレクトリが存在しない場合、作成
                 File uploadDir = new File(UPLOAD_DIR);
                 if (!uploadDir.exists()) {
@@ -39,6 +42,7 @@ public class ImageService {
                 // 必要に応じてエラーハンドリングを追加
             }
         }
+        // Optionalを使う方が良い
         return null;
     }
 }
