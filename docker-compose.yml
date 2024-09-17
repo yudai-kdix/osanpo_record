@@ -5,3 +5,6 @@
 # flywayでDBマイグレーションを行うようにしたい
 # https://github.com/flyway/flyway-docker
 # https://qiita.com/ponkotuy/items/58177b50490687170439
+
+# こんな感じ
+# https://github.com/d-narushima-fancs/osanpo_record/commit/af8491689274a9e65a1d77e80c8425ac42fd87bc
